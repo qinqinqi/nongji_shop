@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/* 清楚默认样式 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td { margin:0; padding:0;box-sizing: border-box; }
+body { font-size:16px; font-family:Microsoft YaHei !important; background:#fff; line-height:normal;max-width: 750px;margin: 0 auto; }
+fieldset, img { border:0; }
+ol, ul { list-style:none; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+em { font-style:normal; }
+input, button, select, textarea { outline:none; }
+textarea { resize:none; }
+p{ text-justify:distribute;}
+a {text-decoration:none;color:#434343; }
+img{padding:0px; margin:0px auto; border:0px;max-width: 100%;display: block;}
+
+.fl{float: left;}
+.fr{float: right;}
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after{content: " ";display: table;}
+.clearfix:after{clear: both;}
+.clearfix{zoom: 1;}
+
+:-webkit-autofill {
+    -webkit-text-fill-color: #000 !important;
+    transition: background-color 5000s ease-in-out 0s;
+   }
