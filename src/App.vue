@@ -1,14 +1,24 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <ul class="footer-bar">
-      <router-link tag="li" to="/" class="footer-bar-item">首页</router-link>
-      <router-link tag="li" to="/category" class="footer-bar-item">分类</router-link>
-      <router-link tag="li" to="/cart" class="footer-bar-item">购物车</router-link>
-      <router-link tag="li" to="/mine" class="footer-bar-item">我的</router-link>
-    </ul>
+    <van-tabbar v-model="active" inactive-color="#000">
+      <van-tabbar-item to="/" icon="wap-home-o">首页</van-tabbar-item>
+      <van-tabbar-item to="/category" icon="records">分类</van-tabbar-item>
+      <van-tabbar-item to="/cart" icon="cart-o">购物车</van-tabbar-item>
+      <van-tabbar-item to="/mine" icon="contact">我的</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      active: 0
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 *{

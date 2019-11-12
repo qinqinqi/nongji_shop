@@ -21,6 +21,11 @@ vue-cli + Vant + axios + ES6 +  Node.js + koa + MongoDB
 
 * 运行项目：npm run serve
 
+* 安装vant：npm i vant -S   (-S指的是--save)
+
+  * 导入所有的组件
+  * 按需导入组件
+
   ​
 
 
@@ -43,6 +48,7 @@ npm run serve
 
 * 路由懒加载
 * 下拉刷新
+* 图片懒加载  vant
 
 
 
