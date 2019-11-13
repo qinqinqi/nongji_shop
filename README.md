@@ -1,6 +1,6 @@
 # 技术栈
 
-vue-cli + Vant + axios + ES6 +  Node.js + koa + MongoDB
+vue-cli + scss + Vant + axios + ES6 +  Node.js + koa + MongoDB
 
 
 
