@@ -26,6 +26,8 @@ vue-cli + Vant + axios + ES6 +  Node.js + koa + MongoDB
   * 导入所有的组件
   * 按需导入组件
 
+* 安装 vue-awesome-swiper：npm i vue-awesome-swiper --save
+
   ​
 
 
@@ -60,8 +62,19 @@ npm run serve
 * 购物车
 
 
-
 # 项目结构
+
+
+
+
+
+# mock.js
+
+
+
+
+
+
 
 
 

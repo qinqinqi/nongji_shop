@@ -25,3 +25,17 @@ img{padding:0px; margin:0px auto; border:0px;max-width: 100%;display: block;}
     -webkit-text-fill-color: #000 !important;
     transition: background-color 5000s ease-in-out 0s;
    }
+
+/* 单行文本溢出 */
+.one-ellipsis{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/* 多行文本溢出 */
+.two-ellipsis{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden; 
+}

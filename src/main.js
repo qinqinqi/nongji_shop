@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
+import '@/mock/mock.js'
 
 // 导入所有的vant组件
 // import Vant from 'vant';
