@@ -13,8 +13,8 @@ import '@/mock/mock.js'
 
 // 按需引入组件（推荐）
 //安装插件babel-plugin-import
-import { Button, Icon, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload } from 'vant'
-Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload);
+import { Button, Icon, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload,Tabs, Tab, Field, CellGroup} from 'vant'
+Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload).use(Tabs).use(Tab).use(Field).use(CellGroup);
 
 Vue.config.productionTip = false
 

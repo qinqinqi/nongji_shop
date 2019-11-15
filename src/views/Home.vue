@@ -43,7 +43,7 @@
         </li>
       </ul>
     </div>
-
+    
   </div>
 </template>
 
@@ -51,6 +51,7 @@
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
+import url from '@/service.config.js'
 export default {
   name: 'home',
   data(){
@@ -111,49 +112,7 @@ export default {
         slidesPerView: 3,
         spaceBetween: 10
       },
-      varietyItem: [   // 推荐商品
-        {
-          name: "雷沃轮式拖拉机M1504-D",
-          img: "http://e.etian365.com/upload/upload/20170606/aeee57d2-f549-4e85-bc28-adf19fbba2d3.jpg.418x314.jpg",
-          price: "面议",
-          company: "雷沃重工股份有限公司",
-          city: "山东潍坊"
-        },
-        {
-          name: "雷沃阿波斯P5000",
-          img: "http://e.etian365.com/upload/upload/20170606/aeee57d2-f549-4e85-bc28-adf19fbba2d3.jpg.418x314.jpg",
-          price: "19.58万",
-          company: "雷沃重工股份有限公司",
-          city: "山东潍坊"
-        },
-        {
-          name: "雷沃轮式拖拉机M1504-D",
-          img: "http://e.etian365.com/upload/upload/20170606/aeee57d2-f549-4e85-bc28-adf19fbba2d3.jpg.418x314.jpg",
-          price: "面议",
-          company: "雷沃重工股份有限公司",
-          city: "山东潍坊"
-        },
-        {
-          name: "雷沃阿波斯P5000",
-          img: "http://e.etian365.com/upload/upload/20170606/aeee57d2-f549-4e85-bc28-adf19fbba2d3.jpg.418x314.jpg",
-          price: "19.58万",
-          company: "雷沃重工股份有限公司",
-          city: "山东潍坊"
-        },{
-          name: "雷沃轮式拖拉机M1504-D",
-          img: "http://e.etian365.com/upload/upload/20170606/aeee57d2-f549-4e85-bc28-adf19fbba2d3.jpg.418x314.jpg",
-          price: "12万",
-          company: "雷沃重工股份有限公司",
-          city: "山东潍坊"
-        },
-        {
-          name: "雷沃阿波斯P5000",
-          img: "http://e.etian365.com/upload/upload/20170606/aeee57d2-f549-4e85-bc28-adf19fbba2d3.jpg.418x314.jpg",
-          price: "19.58万",
-          company: "雷沃重工股份有限公司",
-          city: "山东潍坊"
-        }
-      ],
+      varietyItem: [], //推荐商品
     }
   },
   components: {
@@ -162,10 +121,9 @@ export default {
   },
   created: function(){
     axios
-      .get('http://www.ceshi.com/getList')
+      .get(url.getVarietyItem)
       .then( res => {
-        // this.carouselItem = res.data;
-        console.log(res.data.data);
+        this.varietyItem = res.data;
       })
   }
 }

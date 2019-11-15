@@ -1,6 +1,6 @@
 # 技术栈
 
-vue-cli + scss + Vant + ES6 +  Node.js + koa + MongoDB
+vue-cli + scss + Vant + ES6 +  Node.js + koa2 + MongoDB
 
 
 
@@ -31,6 +31,35 @@ vue-cli + scss + Vant + ES6 +  Node.js + koa + MongoDB
   ​
 
 
+# 服务端搭建
+
+## koa2
+
+* 初始化项目：npm init -y
+* 安装koa：npm i koa -S
+
+
+
+## Mongodb
+
+`Mongodb`是非关系型数据库，查询语句使用的是独特的Mongodb查询方式
+
+`MsSQL`是关系型数据库，查询语句使用的是传统的sql语句，在海量处理数据的时候效率会很低
+
+* 安装Mongodb
+* 启动数据库：mongod
+* 数据库管理工具Robo 3T：[https://robomongo.org/](https://robomongo.org/)
+  * create---name-----test----save
+
+## mongoose
+
+* mongoose：Node和MongoDB数据通讯的数据建模库(纽带)
+* npm i mongoose -S
+* 连接数据库  init.js
+* schema定义（User.js）数据模型并引入  
+* npm i glob -S
+
+
 
 # 项目运行
 
@@ -51,6 +80,7 @@ npm run serve
 * 路由懒加载
 * 下拉刷新
 * 图片懒加载  vant
+* 在servie.config.js中统一接口配置
 
 
 
