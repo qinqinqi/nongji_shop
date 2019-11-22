@@ -11,11 +11,11 @@
     <van-tabs>
       <van-tab title="登录">
         <van-cell-group>
-          <van-field v-model="loginUser" required placeholder="请输入用户名"></van-field>
-          <van-field type="password" v-model="loginPass" required placeholder="请输入密码"></van-field>
+          <van-field v-model="loginUser" required clearable placeholder="请输入用户名"></van-field>
+          <van-field type="password" v-model="loginPass" required clearable placeholder="请输入密码"></van-field>
         </van-cell-group>
         <div>
-          <van-button type="primary" size="large">登录</van-button>
+          <van-button @click="loginHandler" type="primary" size="large">登录</van-button>
         </div>
       </van-tab>
       <van-tab title="注册">
@@ -32,10 +32,11 @@
 </template>
 
 <script>
-import login_title_1 from '../assets/images/login_title_1.png'
-import login_title_2 from '../assets/images/login_title_2.png'
-import axios from 'axios'
-import url from '@/service.config.js'
+import login_title_1 from '../assets/images/login_title_1.png';
+import login_title_2 from '../assets/images/login_title_2.png';
+import axios from 'axios';
+import url from '@/service.config.js';
+import { mapActions } from 'vuex';
 export default {
   name: "mine",
   data() {
@@ -49,19 +50,62 @@ export default {
     }
   },
   methods: {
+
+    ...mapActions(['loginAction']),
+
     //注册的处理方法
     registHandler(){
       axios({
-        url: url,
+        url: url.registUser,
         method: 'post',
         data: {
           userName: this.registUser,
-          userPass: this.registPass
+          password: this.registPass
         }
       }).then(res => {
-        console.log(res);
+        // console.log(res);
+
+        if(res.data.code == 200){
+          this.$toast.success('注册成功');
+          this.registUser = this.registPass = '';
+
+        }else{
+          this.$toast.fail('注册失败');
+        }
       }).catch(err => {
+        console.log(err)
+        this.$toast.fail('注册失败');
+      });
+    },
+
+    // 登陆的处理方法
+    loginHandler(){
+      axios({
+        url: url.loginUser,
+        method: 'post',
+        data: {
+          userName: this.loginUser,
+          password: this.loginPass
+        }
+      }).then(res => {
+        if(res.data.code == 200){
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+            },1000)
+          }).then(() => {
+            this.$toast.success('登录成功');
+            // 保存用户登录状态
+            this.loginAction(res.data.userInfo);
+            this.$router.go(-1);
+          })
+        }else{
+          this.$toast.fail(res.data.message);
+        }
+        
+      }).catch(err => { 
         console.log(err);
+        this.$toast.success('登陆失败');
       })
     }
   }

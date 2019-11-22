@@ -3,7 +3,8 @@
     <div class="nav-bar">
       <van-nav-bar title="首页" class="nav-bar-title">
         <van-icon name="search" slot="left" size="26px" color="#ff7122"></van-icon>
-        <van-icon name="cart-o" slot="right" size="22px" color="#ff7122"></van-icon>
+        <!-- <van-icon name="cart-o" slot="right" size="22px" color="#ff7122">{{userInfo.userName}}</van-icon> -->
+        <van-icon @click="$router.push('/mine')" slot="right">{{JSON.stringify(userInfo) === {} ? '未登录' :userInfo.userName}}</van-icon>
       </van-nav-bar>
     </div>
 
@@ -52,6 +53,7 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import url from '@/service.config.js'
+import { mapState } from 'vuex';
 export default {
   name: 'home',
   data(){
@@ -125,6 +127,9 @@ export default {
       .then( res => {
         this.varietyItem = res.data;
       })
+  },
+  computed: {
+    ...mapState(['userInfo'])
   }
 }
 </script>
