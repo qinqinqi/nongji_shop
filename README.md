@@ -1,10 +1,30 @@
-# 技术栈
+# 一、技术栈
 
 vue-cli + scss + Vant + ES6 +  Node.js + koa2 + MongoDB
 
 
 
-# 项目搭建
+# 二、项目运行
+
+项目开始前一定要确保已经安装MongoDB和robo 3t
+
+```
+git clone   ····
+
+cd shop_nj/shop_server
+npm install
+node index
+
+cd shop_nj
+npm install
+npm run serve
+```
+
+
+
+# 三、项目搭建流程
+
+## 1）前端
 
 * 安装node   （node -v）
 
@@ -33,13 +53,13 @@ vue-cli + scss + Vant + ES6 +  Node.js + koa2 + MongoDB
   ​
 
 
-# 服务端搭建
+## 2）服务端搭建
 
 * 初始化项目：npm init -y
 
 
 
-## koa2
+### koa2
 
 * 安装koa：npm i koa -S
 * 安装中间件：npm i koa-bodyparser -S  (解析post请求)
@@ -51,7 +71,7 @@ vue-cli + scss + Vant + ES6 +  Node.js + koa2 + MongoDB
 
 
 
-## Mongodb
+### Mongodb
 
 `Mongodb`是非关系型数据库，查询语句使用的是独特的Mongodb查询方式
 
@@ -72,24 +92,9 @@ vue-cli + scss + Vant + ES6 +  Node.js + koa2 + MongoDB
 
 
 
-# 项目运行
-
-```
-git clone   ····
-
-cd shop_server
-npm install
-node index
-
-cd shop_nj
-npm install
-npm run serve
-```
 
 
-
-
-# 项目功能
+# 四、项目功能
 
 * 用户注册
   * 前端页面编写
@@ -116,11 +121,14 @@ npm run serve
 * 购物车
   * 判断登录状态
   * 多集合查询
+  * 多选、单选、计算总价
 
 
 
 
-# mock
+# 五、附加知识
+
+# 1）mock
 
 生成随机数据，拦截jax请求
 
@@ -148,10 +156,7 @@ npm run serve
 
 * 6、测试覆盖度
 
-  * 假如有一个接口，有100个不同类型的返回，我们需要测试它在不同返回下，系统是否能够正常响应，但是有些返回在正常情况下基本不会发生，难道你要千方百计地给系统做各种手脚让他返回以便测试吗？比如，我们需要测试在当接口发生500错误的时候，app是否崩溃，别告诉我你一定要给服务端代码做些手脚让他返回500 。。。而使用mock，这一切就都好办了，想要什么返回就模拟什么返回。
-
-  ​
-
+  * 假如有一个接口，有100个不同类型的返回，我们需要测试它在不同返回下，系统是否能够正常响应，但是有些返回在正常情况下基本不会发生，难道你要千方百计地给系统做各种手脚让他返回以便测试吗？比如，我们需要测试在当接口发生500错误的时候，app是否崩溃，别告诉我你一定要给服务端代码做些手脚让他返回500 。。。而使用mock，这一切就都好办了，想要什么返回就模拟什么返回。​
 
 
 
