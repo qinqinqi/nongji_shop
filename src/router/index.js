@@ -9,6 +9,7 @@ let Category = ()=> import('../views/Category.vue')
 let Cart = ()=> import('../views/Cart.vue')
 let Mine = ()=> import('../views/Mine.vue')
 import Detail from '../views/Detail.vue'
+import Pay from '../views/Pay.vue'
 import FooterBar from '@/components/FooterBar'
 
 Vue.use(VueRouter)
@@ -27,7 +28,8 @@ const routes = [
       'footer-bar': FooterBar
     },
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      index: 0
     }
   },
   {
@@ -38,7 +40,8 @@ const routes = [
       'footer-bar': FooterBar
     },
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      index: 1
     }
   },
   {
@@ -49,7 +52,8 @@ const routes = [
       'footer-bar': FooterBar
     },
     meta: {
-      keepAlive: true
+      keepAlive: false,
+      index: 2
     }
   },
   {
@@ -60,13 +64,19 @@ const routes = [
       'footer-bar': FooterBar
     },
     meta: {
-      keepAlive: false
+      keepAlive: false,
+      index: 3
     }
   },
   {
     path: '/detail/:id',
     name: 'detail',
     component: Detail
+  },
+  {
+    path: '/pay',
+    name: 'pay',
+    component: Pay
   }
 ]
 

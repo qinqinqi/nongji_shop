@@ -1,6 +1,6 @@
 module.exports = {
     productionSourceMap: false,
-    devServer: {
-        open:true
-    }
+    // devServer: {
+    //     open:true
+    // }
 }

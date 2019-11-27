@@ -4,7 +4,7 @@
       <van-nav-bar title="首页" class="nav-bar-title">
         <van-icon name="search" slot="left" size="26px" color="#ff7122"></van-icon>
         <!-- <van-icon name="cart-o" slot="right" size="22px" color="#ff7122">{{userInfo.userName}}</van-icon> -->
-        <van-icon @click="$router.push('/mine')" slot="right">{{JSON.stringify(userInfo) === {} ? '未登录' :userInfo.userName}}</van-icon>
+        <van-icon @click="$router.push('/mine')" slot="right">{{JSON.stringify(userInfo) === '{}' ? '未登录' :userInfo.userName}}</van-icon>
       </van-nav-bar>
     </div>
 
@@ -150,6 +150,10 @@ export default {
     left:0;
     z-index: 10!important;
     width: 100%;
+  }
+  .van-nav-bar .van-icon{
+    color: #ff7122;
+    font-size: 14px;
   }
 }
 // 热门商品

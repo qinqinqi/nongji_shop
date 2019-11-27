@@ -1,10 +1,10 @@
 <template>
   <div>
-    <van-tabbar @change="change" v-model="active" inactive-color="#000" class="footer-bar"  active-color="#ff7122">
-      <van-tabbar-item to="/" icon="wap-home-o">首页</van-tabbar-item>
-      <van-tabbar-item to="/category" icon="records">分类</van-tabbar-item>
-      <van-tabbar-item to="/cart" icon="cart-o">购物车</van-tabbar-item>
-      <van-tabbar-item to="/mine" icon="contact">我的</van-tabbar-item>
+    <van-tabbar inactive-color="#000" class="footer-bar">
+      <van-tabbar-item to="/" icon="wap-home-o" :class="$route.meta.index == 0 ? 'active' : ''">首页</van-tabbar-item>
+      <van-tabbar-item to="/category" icon="records" :class="$route.meta.index == 1 ? 'active' : ''">分类</van-tabbar-item>
+      <van-tabbar-item to="/cart" icon="cart-o" :class="$route.meta.index == 2 ? 'active' : ''">购物车</van-tabbar-item>
+      <van-tabbar-item to="/mine" icon="contact" :class="$route.meta.index == 3 ? 'active' : ''">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -13,18 +13,8 @@
 export default {
     data() {
         return {
-        active: 0
         }
     },
-    created(){
-      this.active = parseInt(localStorage.getItem('active'));
-    },
-    methods: {
-      change(active) {
-        console.log(active);
-        localStorage.setItem('active', active);
-      }
-    }
 }
 </script>
 
@@ -43,6 +33,12 @@ export default {
       width: 100%;
       box-shadow: 0 0 .1rem #ccc;
     }
+  }
+  .van-tabbar-item--active{
+    color:#000;
+  }
+  .active{
+    color:#ff7122!important;
   }
   
 </style>

@@ -132,7 +132,7 @@ export default {
     color: #000;
   }
   li.active{
-    border-left: 1px solid #ec681f;
+    border-left: 3px solid #ec681f;
     background: #fff;
     color: #EC681F !important;
   }

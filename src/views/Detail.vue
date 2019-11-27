@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="商品详情" left-text="返回" @click-left="$router.go(-1)"></van-nav-bar>
+    <van-nav-bar title="商品详情" left-text="返回"  left-arrow @click-left="$router.go(-1)"></van-nav-bar>
     <img :src="detail.img" alt="" class="detail-img">
     <div class="detail">
       <p class="detail-name">{{detail.name}}</p>
@@ -11,9 +11,9 @@
 
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
-      <van-goods-action-icon icon="cart-o" text="购物车" to="/cart" />
+      <van-goods-action-icon icon="cart-o" text="购物车" :info="cartNum" to="/cart" />
       <van-goods-action-button type="warning" text="加入购物车" @click="addCart" />
-      <van-goods-action-button type="danger" text="立即购买" @click="onClickButton" />
+      <van-goods-action-button type="danger" text="立即购买" to="/pay" />
     </van-goods-action>
   </div>
 </template>
@@ -26,7 +26,8 @@ export default {
     name: 'Detail',
     data() {
       return {
-        detail: {}
+        detail: {},
+        cartNum: 0
       }
     },
     created(){
@@ -38,6 +39,19 @@ export default {
         }
       }).then( res => {
         this.detail = res.data;
+      }).catch( err => {
+        console.log(err);
+      });
+
+      axios({
+        url: url.getCart,
+        method: 'get',
+        params: {
+          userId: this.userInfo._id
+        }
+      }).then( res => {
+        console.log(res)
+        this.cartNum = res.data.length;
       }).catch( err => {
         console.log(err);
       })
@@ -62,7 +76,6 @@ export default {
           }, 1000);
         }else{
           // 插入购物车
-          console.log(this.detail._id);
           axios({
             url: url.addCart,
             method: 'post',
@@ -78,6 +91,7 @@ export default {
           }).catch( err => {
             console.log(err);
           })
+          this.cartNum++;
         }
         
 
@@ -103,5 +117,13 @@ export default {
     font-size: .3rem;
     font-weight: bold;
   }
+  
+}
+.van-nav-bar__text,.van-nav-bar .van-icon{
+  color: #ff7122;
+}
+.van-nav-bar__title{
+  font-size: 18px;
+  font-weight: bold;
 }
 </style>

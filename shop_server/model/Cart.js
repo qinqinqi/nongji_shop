@@ -9,6 +9,7 @@ const cartSchema = new Schema({
         ref: 'Product'  //指向联合查询的集合
     },
     userId: ObjectId,
+    checked: {type: Boolean, default: true},
     createDate: {type: Date, default: Date.now()}
 });
 

@@ -25,6 +25,22 @@ router.get('/getCart', async (ctx) => {
         .exec().then( res => {
             ctx.body = res;
         })
+});
+
+// 删除购物车商品
+router.post('/delCart', async (ctx) => {
+    const Cart = mongoose.model('Cart');
+    await Cart.findOneAndRemove().then( () => {  
+        ctx.body = {
+            code: 200,
+            message: '删除成功'
+        }
+    }).catch( err => {
+        ctx.body = {
+            code: 500,
+            message: err
+        }
+    })
 })
 
 module.exports = router;
