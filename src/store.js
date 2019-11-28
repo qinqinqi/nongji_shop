@@ -17,12 +17,15 @@ export default new Vuex.Store({
     mutations: {
         changeLogin(state, status){
             state.userInfo = status;
-        }
+        },
+        loginOut (state){
+            state.userInfo = {};
+        },
     },
     // 和mutation差不多 但是可以处理异步的操作
     actions: {
         loginAction({commit}, user){
             commit('changeLogin', user)
-        }
+        },
     },
 })

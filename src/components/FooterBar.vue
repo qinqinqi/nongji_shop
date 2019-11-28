@@ -34,11 +34,16 @@ export default {
       box-shadow: 0 0 .1rem #ccc;
     }
   }
+  .van-tabbar-item{
+    font-size: .3rem;
+  }
   .van-tabbar-item--active{
     color:#000;
   }
   .active{
     color:#ff7122!important;
   }
-  
+  .van-tabbar-item__icon .van-icon{
+    font-size: .4rem;
+  }
 </style>

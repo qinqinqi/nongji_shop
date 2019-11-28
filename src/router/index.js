@@ -59,6 +59,7 @@ const routes = [
   {
     path: '/mine',
     name: 'mine',
+    // component: Mine,
     components: {
       default: Mine,
       'footer-bar': FooterBar
